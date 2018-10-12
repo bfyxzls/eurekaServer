@@ -1,0 +1,21 @@
+server.port: 6761
+management.port: 6762
+application.name: eurekaServer
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.hostname}:${server.port}/eureka/
+---
+eureka:
+  profile: svt
+  instance:
+    hostname: eureka-server
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.hostname}:${server.port}/eureka/
