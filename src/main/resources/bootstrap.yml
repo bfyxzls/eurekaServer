@@ -1,7 +1,15 @@
-server.port: 6761
-management.port: 6762
-application.name: eurekaServer
+server:
+  port: 6761
+management:
+  port: 6762
+application:
+  name: eurekaServer
+spring:
+  profiles:
+    active: dev
+---
 eureka:
+  profile: dev
   instance:
     hostname: localhost
   client:
