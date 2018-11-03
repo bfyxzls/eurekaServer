@@ -1,9 +1,9 @@
 server:
-  port: 6761
+  port: 8761
 management:
-  port: 6762
+  port: 8762
 application:
-  name: eurekaServer
+  name: eurekaserver
 spring:
   profiles:
     active: dev
@@ -11,19 +11,9 @@ spring:
 eureka:
   profile: dev
   instance:
-    hostname: localhost
+    hostname: eurekaserver
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.hostname}:${server.port}/eureka/
----
-eureka:
-  profile: svt
-  instance:
-    hostname: eureka-server
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
