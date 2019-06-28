@@ -3,14 +3,15 @@ server:
 management:
   port: ${BG_PORT:8762}
 application:
-  name: eurekaserver
+  name: ${NAME:eurekaserver}
 spring:
   profiles:
     active: dev
 ---
+eureka:
   profile: dev
   instance:
-    hostname: eurekaserver
+    hostname: ${application.name}
     perferIpAddress: true #基于IP地址注册
   client:
     registerWithEureka: false
